@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href = "style.css" type="text/css">
+    <title>Anagram Checker</title>
+    <style> 
+    </style>
+</head>
+<body>
+    <h2>Anagram Checker</h2>
+    <input type="text" id="string1" placeholder="Enter first string">
+    <input type="text" id="string2" placeholder="Enter second string">
+    <button onclick="checkAnagram()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkAnagram() {
+            let str1 = document.getElementById("string1").value.toLowerCase().replace(/\s/g, "");
+            let str2 = document.getElementById("string2").value.toLowerCase().replace(/\s/g, "");
+            
+            if (str1.length !== str2.length) {
+                document.getElementById("result").innerText = "False";
+                return;
+            }
+            
+            let sortedStr1 = str1.split('').sort().join('');
+            let sortedStr2 = str2.split('').sort().join('');
+            
+            document.getElementById("result").innerText = sortedStr1 === sortedStr2 ? "True" : "False";
+        }
+    </script>
+</body>
+</html>
